@@ -5,9 +5,12 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Condition.*;
 
 public class CreditGatePage {
     private final SelenideElement cardNumberField = $("input[placeholder='0000 0000 0000 0000']");
@@ -39,27 +42,27 @@ public class CreditGatePage {
     }
 
     public void successMessage() {
-        success.waitUntil(Condition.visible, 100000);
+        success.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void failureMessage() {
-        failure.waitUntil(Condition.visible, 10000);
+        failure.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void failureMonthOrYear() {
-        invalidDates.shouldBe(Condition.visible);
+        invalidDates.shouldBe(visible);
     }
 
     public void failureYearLessNow() {
-        invalidDatesLessNow.shouldBe(Condition.visible);
+        invalidDatesLessNow.shouldBe(visible);
     }
 
     public void failureUser() {
-        invalidUser.shouldBe(Condition.visible);
+        invalidUser.shouldBe(visible);
     }
 
     public void failureCVV() {
-        invalidCVV.shouldBe(Condition.visible);
+        invalidCVV.shouldBe(visible);
     }
 
     public void emptyFields() {
@@ -67,7 +70,7 @@ public class CreditGatePage {
     }
 
     public void failureEmptyFields() {
-        invalidCVV.shouldBe(Condition.visible);
-        requiredField.shouldBe(Condition.visible);
+        invalidCVV.shouldBe(visible);
+        requiredField.shouldBe(visible);
     }
 }

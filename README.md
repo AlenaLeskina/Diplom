@@ -5,8 +5,8 @@
 2. Открыть с клонированный проект в Intellij IDEA.
 3. Для запуска контейнеров ввести в терминале Intellij IDEA команду `docker-compose up -d`.
 4. Запустить SUT командой:
-- `java -Dspring.datasource-mysql.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar` - на БД mysql.
-- `java -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar` - на БД postgresql.
+- `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar` - на БД mysql.
+- `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar` - на БД postgresql.
 
 Запуск успешен при наличии в логах сообщений `Tomcat started on port(s): 8080 (http) with context path ''` и `Started ShopApplication in ... seconds (JVM running for ...)`
 

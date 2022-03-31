@@ -1,6 +1,6 @@
 package ru.netology.web.page;
 
-import com.codeborne.selenide.Condition;
+import static com.codeborne.selenide.Condition.*;
 import com.codeborne.selenide.SelenideElement;
 
 
@@ -13,7 +13,7 @@ public class StartPage {
 
     public StartPage() {
         SelenideElement heading = $(byText("Путешествие дня"));
-        heading.shouldBe(Condition.visible); }
+        heading.shouldBe(visible); }
 
     public PaymentGatePage paymentGate() {
         paymentGateButton.click();
